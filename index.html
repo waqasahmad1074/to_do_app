@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- sun and moon Button -->
+    <button class="theme" onclick="changeTheme()" id="themeButton">
+        🌞
+    </button>
+
+    <!-- main box -->
+    <div class="main">
+
+        <!-- heading -->
+        <div class="heading">
+            <h1>ToDo App</h1>
+            <p>Keep it up!</p>
+
+            <!-- progress bar -->
+            <div class="progress">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+
+        <!-- task counter -->
+        <div class="counter">
+            <h2 id="counter">0 / 0</h2>
+        </div>
+
+    </div>
+
+    <!-- add task -->
+    <div class="task">
+        <input type="text" id="taskInput" placeholder="Write your task">
+        <button class="add" onclick="addTask()">+</button>
+    </div>
+
+    <!-- task list -->
+    <ul id="taskList"></ul>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+

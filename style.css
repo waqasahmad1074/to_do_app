@@ -1,0 +1,213 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* dark mode */
+body {
+    background-color: #030629;
+    color: white;
+    font-family: Georgia, serif;
+    min-height: 100vh;
+    transition: 0.3s;
+}
+
+/* light mode */
+body.light {
+    background-color: white;
+    color: black;
+}
+
+/* sun and moon button */
+.theme {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    background: none;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* main Box */
+.main {
+    width: 500px;
+    height: 164px;
+    border: 2px solid #818cf8;
+    border-radius: 20px;
+    margin: 117px auto 60px;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* heading */
+.heading h1 {
+    font-size: 28px;
+}
+
+.heading p {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* progress bar */
+.progress {
+    width: 286px;
+    height: 10px;
+    background-color: #1b2049;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* progress color */
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background-color: #818cf8;
+    border-radius: 10px;
+}
+
+/* counter circle */
+.counter {
+    width: 100px;
+    height: 100px;
+    background-color: #818cf8;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.counter h2 {
+    font-size: 27px;
+}
+
+/* input and add button */
+.task {
+    width: 500px;
+    margin: 0 auto;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.task input {
+    width: 440px;
+    height: 50px;
+    background-color: #1b2049;
+    border: 1px solid #818cf8;
+    border-radius: 10px;
+    padding: 15px;
+    color: white;
+    font-size: 14px;
+    outline: none;
+}
+
+.task input::placeholder {
+    color: #888;
+}
+
+/* add button */
+.add {
+    width: 50px;
+    height: 50px;
+    background-color: #818cf8;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* task list */
+#taskList {
+    width: 500px;
+    margin: 20px auto;
+    list-style: none;
+}
+
+/* individual task */
+#taskList li {
+    background-color: #1b2049;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow-wrap: anywhere;
+    gap: 10px;
+}
+
+/* completed task */
+#taskList li.done span {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+/* light mode main box */
+body.light .main {
+    background-color: white;
+}
+
+/* light mode progress bar */
+body.light .progress {
+    background-color: #1b2049;
+}
+
+/* light mode input */
+body.light .task input {
+    background-color: #1b2049;
+    color: white;
+}
+
+/* light mode tasks */
+body.light #taskList li {
+    background-color: #eeeeff;
+    color: black;
+}
+
+/* small screen */
+@media (max-width: 600px) {
+    .main {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .heading h1 {
+        font-size: 23px;
+    }
+
+    .progress {
+        width: 100%;
+        max-width: 220px;
+    }
+
+    .counter {
+        width: 75px;
+        height: 75px;
+    }
+
+    .counter h2 {
+        font-size: 20px;
+    }
+
+    .task,
+    #taskList {
+        width: 90%;
+    }
+
+    .task input {
+        width: calc(100% - 60px);
+        min-width: 0;
+    }
+
+    .add {
+        flex-shrink: 0;
+    }
+}
