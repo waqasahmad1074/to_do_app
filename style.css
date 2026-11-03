@@ -4,210 +4,321 @@
     box-sizing: border-box;
 }
 
-/* dark mode */
 body {
-    background-color: #030629;
-    color: white;
-    font-family: Georgia, serif;
     min-height: 100vh;
-    transition: 0.3s;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #3d285e;
+    background: linear-gradient(135deg, #c8b6ff, #fbc2eb, #a6c1ee);
+    transition: background 0.3s, color 0.3s;
 }
 
-/* light mode */
-body.light {
-    background-color: white;
-    color: black;
+body.dark {
+    color: #ffffff;
+    background: linear-gradient(135deg, #17142b, #30264d, #171c36);
 }
 
-/* sun and moon button */
 .theme {
     position: absolute;
-    top: 25px;
+    top: 20px;
     right: 25px;
-    background: none;
+    width: 48px;
+    height: 48px;
+    padding: 7px;
     border: none;
-    font-size: 25px;
+    border-radius: 50%;
     cursor: pointer;
+    background: rgba(255, 255, 255, 0.6);
 }
 
-/* main Box */
+.theme img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
 .main {
-    width: 500px;
-    height: 164px;
-    border: 2px solid #818cf8;
-    border-radius: 20px;
-    margin: 117px auto 60px;
-    padding: 30px;
+    width: 100%;
+    max-width: 500px;
+    margin: 140px auto 30px;
+    padding: 25px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px rgba(50, 30, 80, 0.12);
+    backdrop-filter: blur(12px);
 }
 
-/* heading */
 .heading h1 {
-    font-size: 28px;
+    margin-bottom: 8px;
+    font-size: 32px;
 }
 
 .heading p {
+    margin-bottom: 18px;
     font-size: 14px;
-    margin-bottom: 20px;
 }
 
-/* progress bar */
 .progress {
-    width: 286px;
-    height: 10px;
-    background-color: #1b2049;
-    border-radius: 10px;
+    width: 220px;
+    max-width: 100%;
+    height: 9px;
     overflow: hidden;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.55);
 }
 
-/* progress color */
 .progress-fill {
     width: 0%;
     height: 100%;
-    background-color: #818cf8;
-    border-radius: 10px;
-}
-
-/* counter circle */
-.counter {
-    width: 100px;
-    height: 100px;
-    background-color: #818cf8;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
+    border-radius: 20px;
+    background: #7c4dff;
+    transition: width 0.3s;
 }
 
 .counter h2 {
-    font-size: 27px;
+    min-width: 65px;
+    padding: 15px 10px;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.45);
 }
 
-/* input and add button */
 .task {
-    width: 500px;
-    margin: 0 auto;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 25px;
+    padding: 8px;
     display: flex;
-    gap: 10px;
     align-items: center;
+    gap: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.4);
 }
 
-.task input {
-    width: 440px;
-    height: 50px;
-    background-color: #1b2049;
-    border: 1px solid #818cf8;
-    border-radius: 10px;
-    padding: 15px;
-    color: white;
-    font-size: 14px;
-    outline: none;
-}
-
-.task input::placeholder {
-    color: #888;
-}
-
-/* add button */
-.add {
-    width: 50px;
-    height: 50px;
-    background-color: #818cf8;
-    color: white;
+#taskInput {
+    flex: 1;
+    min-width: 0;
+    padding: 14px;
     border: none;
-    border-radius: 50%;
-    font-size: 30px;
-    font-weight: bold;
-    cursor: pointer;
+    outline: none;
+    color: #3d285e;
+    font-size: 16px;
+    background: transparent;
 }
 
-/* task list */
+#taskInput::placeholder {
+    color: #79698e;
+}
+
+.add {
+    width: 45px;
+    height: 45px;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    background: #8054d9;
+    font-size: 30px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.add:hover {
+    transform: scale(1.06);
+    background: #6840bd;
+}
+
 #taskList {
-    width: 500px;
-    margin: 20px auto;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 0;
     list-style: none;
 }
 
-/* individual task */
 #taskList li {
-    background-color: #1b2049;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 10px;
+    margin-bottom: 12px;
+    padding: 13px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    gap: 12px;
     overflow-wrap: anywhere;
-    gap: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 12px rgba(50, 30, 80, 0.08);
+    animation: appear 0.25s ease;
 }
 
-/* completed task */
+#taskList li span {
+    flex: 1;
+    min-width: 0;
+    line-height: 1.5;
+}
+
+.task-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.edit,
+.check,
+.delete {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.edit {
+    color: #4b287a;
+    background: rgba(255, 255, 255, 0.55);
+    font-size: 20px;
+}
+
+.check {
+    color: #245a45;
+    background: rgba(160, 239, 211, 0.85);
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.delete {
+    padding: 7px;
+    background: rgba(255, 220, 230, 0.65);
+}
+
+.delete img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.edit:hover,
+.check:hover,
+.delete:hover {
+    transform: scale(1.1);
+}
+
+#taskList li.done {
+    background: rgba(174, 245, 218, 0.5);
+}
+
 #taskList li.done span {
     text-decoration: line-through;
-    opacity: 0.5;
+    opacity: 0.65;
 }
 
-/* light mode main box */
-body.light .main {
-    background-color: white;
+#fireworksCanvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
 }
 
-/* light mode progress bar */
-body.light .progress {
-    background-color: #1b2049;
+body.dark .main,
+body.dark .task,
+body.dark #taskList li {
+    border-color: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.09);
 }
 
-/* light mode input */
-body.light .task input {
-    background-color: #1b2049;
-    color: white;
+body.dark #taskInput {
+    color: #ffffff;
 }
 
-/* light mode tasks */
-body.light #taskList li {
-    background-color: #eeeeff;
-    color: black;
+body.dark #taskInput::placeholder {
+    color: #c3b8d9;
 }
 
-/* small screen */
-@media (max-width: 600px) {
+body.dark .progress {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+body.dark .counter h2 {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 550px) {
+    body {
+        padding: 15px;
+    }
+
     .main {
-        width: 90%;
-        padding: 20px;
+        margin-top: 120px;
+        padding: 18px;
+        gap: 10px;
     }
 
     .heading h1 {
-        font-size: 23px;
+        font-size: 26px;
     }
 
     .progress {
-        width: 100%;
-        max-width: 220px;
-    }
-
-    .counter {
-        width: 75px;
-        height: 75px;
+        width: 160px;
     }
 
     .counter h2 {
-        font-size: 20px;
+        min-width: 55px;
+        padding: 12px 7px;
+        font-size: 17px;
     }
 
-    .task,
-    #taskList {
-        width: 90%;
+    #taskList li {
+        padding: 10px;
+        gap: 8px;
     }
 
-    .task input {
-        width: calc(100% - 60px);
-        min-width: 0;
+    .task-actions {
+        gap: 5px;
     }
 
-    .add {
-        flex-shrink: 0;
+    .edit,
+    .check,
+    .delete {
+        width: 32px;
+        height: 32px;
+        border-radius: 9px;
+    }
+
+    .edit {
+        font-size: 17px;
+    }
+
+    .check {
+        font-size: 19px;
+    }
+
+    .delete {
+        padding: 6px;
     }
 }
